@@ -1,0 +1,36 @@
+1.
+
+ CREATE DATABASE bikedb;
+ USE bikedb;
+
+
+ CREATE TABLE bike (ID int(20), NAME varchar(20),  STATUS varchar(25), COMPANY int(11));
+ INSERT INTO bike VALUES (1,'YZF-R15','Active',1),(2,'MT-07','Active',1),(3,'Apache RTR','Active',3);
+
+
+ CREATE TABLE company (ID int(11), NAME varchar(256), ORIGIN varchar(256), FOUND int(111));
+ INSERT INTO company VALUES (1,'Yamaha',1,1955), (2,'Hero',2,1984), (3,'TVS',3,1978);
+
+ create table country(ID int(11),country varchar(256));
+ INSERT INTO country VALUES(1,'Japan'),(2,'India'),(3,'Germany');
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+2.
+
+SELECT bike.Id,bike.Name as Bike ,company.Name as Company,company.Found,country.Country from bike INNER JOIN company USING(Id) INNER
+ JOIN country USING(Id) ORDER BY Id;
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+3.
+
+SELECT bike.Id,bike.Name,country.Country,bike.Status from bike INNER JOIN company USING(Id) INNER JOIN country USING(Id) ORDER BY Id;
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+4.
+
+SELECT bike.Id,company.Name,country.Country from bike INNER JOIN company USING(Id) INNER JOIN country USING(Id) ORDER BY Id;	
+
+
