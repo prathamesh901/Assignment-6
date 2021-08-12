@@ -1,36 +1,37 @@
 1.
+ \sql
+ \connect root@localhost
+ create schema `bikedb`;
+ use bikedb;
 
- CREATE DATABASE bikedb;
- USE bikedb;
 
-
- CREATE TABLE bike (ID int(20), NAME varchar(20),  STATUS varchar(25), COMPANY int(11));
+ CREATE TABLE bike (Id int(11) not null auto_increment,Name varchar(256) not null,Status varchar(256) not null,Company int(11) not null,primary key(Id));
  INSERT INTO bike VALUES (1,'YZF-R15','Active',1),(2,'MT-07','Active',1),(3,'Apache RTR','Active',3);
 
 
- CREATE TABLE company (ID int(11), NAME varchar(256), ORIGIN varchar(256), FOUND int(111));
+ CREATE TABLE company(Id int(11) not null auto_increment,Nmae varchar(256) not null,Found int(11) not null,primary key(Id));
  INSERT INTO company VALUES (1,'Yamaha',1,1955), (2,'Hero',2,1984), (3,'TVS',3,1978);
 
- create table country(ID int(11),country varchar(256));
+ create table country(Id int(11) not null auto_increment,Name varchar(256) not null,primary key(Id));
  INSERT INTO country VALUES(1,'Japan'),(2,'India'),(3,'Germany');
 
-___________________________________________________________________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________________________________________________________
 
 2.
 
-SELECT bike.Id,bike.Name as Bike ,company.Name as Company,company.Found,country.Country from bike INNER JOIN company USING(Id) INNER
+ SELECT bike.Id,bike.Name as Bike ,company.Name as Company,company.Found,country.Name from bike INNER JOIN company USING(Id) INNER
  JOIN country USING(Id) ORDER BY Id;
 
-___________________________________________________________________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________________________________________________________
 
 3.
 
-SELECT bike.Id,bike.Name,country.Country,bike.Status from bike INNER JOIN company USING(Id) INNER JOIN country USING(Id) ORDER BY Id;
+ SELECT bike.Id,bike.Name,country.Name,bike.Status from bike INNER JOIN company USING(Id) INNER JOIN country USING(Id) ORDER BY Id;
 
-___________________________________________________________________________________________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________________________________________________
 
 4.
 
-SELECT bike.Id,company.Name,country.Country from bike INNER JOIN company USING(Id) INNER JOIN country USING(Id) ORDER BY Id;	
+ SELECT bike.Id,company.Name,country.Name from bike INNER JOIN company USING(Id) INNER JOIN country USING(Id) ORDER BY Id;	
 
 
