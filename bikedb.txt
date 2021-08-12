@@ -10,7 +10,7 @@
 
 
  CREATE TABLE company(Id int not null auto_increment,Nmae varchar(256) not null,Found int not null,primary key(Id));
- INSERT INTO company VALUES (1,'Yamaha',1,1955), (2,'Hero',2,1984), (3,'BMW',3,1978);
+ INSERT INTO company VALUES (1,'Yamaha',1,1955), (2,'Hero',2,1984), (3,'BMW',3,1918);
 
  create table country(Id int not null auto_increment,Name varchar(256) not null,primary key(Id));
  INSERT INTO country VALUES(1,'Japan'),(2,'India'),(3,'Germany');
